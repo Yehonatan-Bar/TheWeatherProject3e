@@ -1,0 +1,36 @@
+/* .country-content-main{
+    max-width: 100%;
+    display: flex;
+    flex-direction: row;
+
+} */
+.country-content{
+    min-width: 150px;
+    max-width: 150px;
+    height: 150px;
+    overflow:auto;
+    display: inline-block;
+    background: lightgreen;
+    color: blue;
+    padding: 15px;
+    margin-left: 15px;
+    margin-top: 10px;
+    border: 3px solid lightgray;
+    border-radius: 100px;
+    text-align: center;
+
+
+}
+
+.search{
+    width: 200px;
+    margin: auto;
+    }
+
+    .my-list{
+        position: fixed;
+    }
+    
+.my-item{
+    cursor: pointer;
+}
