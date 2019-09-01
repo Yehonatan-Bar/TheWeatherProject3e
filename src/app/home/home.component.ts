@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 // import { Country } from '../models/country';
 import { GetForecastsService } from '../services/get-forecasts.service';
+import { Favorite } from '../models/Favorite';
 // import { FiveDayWeatherModel } from '../models/five-days-model';
 
 @Component({
@@ -19,8 +20,11 @@ export class HomeComponent implements OnInit {
   cityName:string = "Tel Aviv";
   public name:string;
   public allFavorites:string[];
+  public allFavoritesCityNames:string[];
   public favorite:string;
-  
+  public favorites = new Favorite(this.locationKey, this.cityName);
+  public favoritesArrayCityAndKey:any[][];
+
   constructor(public forecastsService: GetForecastsService) { }
 
   ngOnInit() {
@@ -59,16 +63,24 @@ export class HomeComponent implements OnInit {
   }
   
   public favoriteMe() {
-      
     if(!localStorage.getItem('allFavorites')){
-      this.allFavorites = [];
-      this.allFavorites.push(this.locationKey);
-     localStorage.setItem('allFavorites', JSON.stringify(this.allFavorites));
+      this.favoritesArrayCityAndKey = [],[];
+      this.favoritesArrayCityAndKey.push([this.locationKey,this.cityName]);
+      localStorage.setItem('allFavorites', JSON.stringify(this.allFavorites));
+     localStorage.setItem('allFavoritesCityNames', JSON.stringify(this.allFavoritesCityNames));
+     localStorage.setItem('favoritesArrayCityAndKey', JSON.stringify(this.favoritesArrayCityAndKey));
     }
     else{
-      this.allFavorites = JSON.parse(localStorage.getItem('allFavorites'));
-      this.allFavorites.push(this.locationKey);
-      localStorage.setItem('allFavorites', JSON.stringify(this.allFavorites));
+      // this.allFavorites = JSON.parse(localStorage.getItem('allFavorites'));
+      this.favoritesArrayCityAndKey = JSON.parse(localStorage.getItem('favoritesArrayCityAndKey'));
+      // console.log("this.allFavorites = ", this.allFavorites);
+      // this.allFavorites.push(this.locationKey);
+      // this.allFavoritesCityNames.push(this.cityName);
+      this.favoritesArrayCityAndKey.push([this.locationKey,this.cityName]);
+      // localStorage.setItem('allFavorites', JSON.stringify(this.allFavorites));
+      // localStorage.setItem('allFavoritesCityNames', JSON.stringify(this.allFavoritesCityNames));
+      localStorage.setItem('favoritesArrayCityAndKey', JSON.stringify(this.favoritesArrayCityAndKey));
+
     }
   }
     

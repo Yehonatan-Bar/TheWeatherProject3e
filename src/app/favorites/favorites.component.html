@@ -1,15 +1,13 @@
 <h2>Favorite Locations</h2>
 
-<div  *ngFor="let a of allFavorite">
-  <div  *ngFor="let f of a">
-      
-      <p>{{f.Temperature.Imperial.Value}}</p>
-      <p>{{f.LocalSource.Name}}</p>
-    <p>{{f.Temperature.Imperial.Value}}</p>
-    <p>{{f.LocalSource.Name}}</p>
-    <!-- <p>Minimum: {{f.Temperature.Minimum.Value}}{{f.Temperature.Minimum.Unit}} </p>
-    <p>Maximum: {{f.Temperature.Maximum.Value}}{{f.Temperature.Maximum.Unit}} </p> -->
-
+<div *ngFor="let a of allFavorite">
+  <div *ngFor="let f of a">
+    <div *ngIf="!isArray">
+      <p>{{f}}</p>
+    </div>
+    <div *ngIf="isArray">
+      <p>{{f[0].Temperature.Imperial.Value}}</p>
+    </div>
+    {{switch()}}
   </div>
-  </div>
-  <!-- [""0""][""0""].Temperature.Imperial.Value -->
+</div>
