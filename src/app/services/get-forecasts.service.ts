@@ -8,10 +8,10 @@ import { Autocomplete } from '../models/autocomplete';
   providedIn: 'root'
 })
 export class GetForecastsService {
-  // yonzbar "vcmhLBfAVywAiMZecakjulylOo4CHPAp";
-  apiKey:string = "vcmhLBfAVywAiMZecakjulylOo4CHPAp";
-  //y.onzbar: "dpR4W7jXGWtNAQDEQ91UfJAt0QJ9alQ8"
   //yonzb.ar "AFgcDyBc9UbUOq8DlkGnywLCG8JGu1ZM";
+  apiKey:string = "AFgcDyBc9UbUOq8DlkGnywLCG8JGu1ZM";
+  // yonzbar "vcmhLBfAVywAiMZecakjulylOo4CHPAp";
+  //y.onzbar: "dpR4W7jXGWtNAQDEQ91UfJAt0QJ9alQ8"
 
   constructor(
     public http: HttpClient
@@ -19,7 +19,7 @@ export class GetForecastsService {
 
     public getFiveDayWeather(locationKey:string):Observable<any> {
     return this.http.get<Object>
-    (`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${locationKey}?apikey=${this.apiKey}`);
+    (`https://dataservice.accuweather.com/forecasts/v1/daily/5day/${locationKey}?apikey=${this.apiKey}`);
   }
   //   public getFiveDayWeather2(locationKey:string):Observable<any> {
   //   return this.http.get<Object>
@@ -27,11 +27,11 @@ export class GetForecastsService {
   // }
 
   getCityAutocomplete(searchValue: string): Observable<Autocomplete[]> {
-    return this.http.get<Autocomplete[]>("http://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey="+this.apiKey+"&language=en-us" + '&q=' + searchValue);
+    return this.http.get<Autocomplete[]>("https://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey="+this.apiKey+"&language=en-us" + '&q=' + searchValue);
   }
   // http://dataservice.accuweather.com/locations/v1/cities/autocomplete
 
   getcurrentconditions(locationKey): Observable<any> {
-    return this.http.get<Object>(`http://dataservice.accuweather.com/currentconditions/v1/${locationKey}?apikey=${this.apiKey}`);
+    return this.http.get<Object>(`https://dataservice.accuweather.com/currentconditions/v1/${locationKey}?apikey=${this.apiKey}`);
   }
   }

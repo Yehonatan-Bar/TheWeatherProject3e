@@ -1,22 +1,6 @@
-div{
-    height: 100vh;
-    box-sizing: border-box;
-    display:grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 15fr;
-
-    /* height: 100%;
-    width: 100%; */
-    /* display: flex !important; */
-}
 header{
     /* height: 20%; */
     background-color: lightgrey !important;
     grid-row: 1/2;
 }
-main{
-    max-width: 100%;
-    /* height:900px; */
-    background: lightblue;
-    grid-row: 2/-1;
-}
+ 

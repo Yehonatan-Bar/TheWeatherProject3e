@@ -1,0 +1,51 @@
+.PrimeBackGround{
+    background-image: url("C:\Users\User\Documents\Job Finding\Herolo\Angular herolo project\TheWeatherProject3\src\assets\arda3FullSize.JPG");
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.9;
+    border: 3px solid lightgray;
+}
+
+.inOrder{
+    /* display: inline-block; */
+    /* overflow:auto; */
+    text-align: center;
+
+}   
+
+.cityName{
+    color: rgb(128, 5, 145);
+    text-align: center;
+
+}
+.empty{
+    background: lightgreen;
+    opacity: 0;
+}
+.centerThemAll{
+    text-align: center;
+
+}
+ .country-content{
+
+    min-width: 150px;
+    max-width: 150px;
+    height: 150px;
+    overflow:auto;
+    display: inline-block;
+    background: linear-gradient(rgb(183, 220, 238), rgb(15, 85, 143));
+    color: rgb(128, 5, 145);
+    padding: 15px;
+    margin-left: 15px;
+    margin-top: 10px;
+    border: 3px solid lightgray;
+    border-radius: 120px;
+    text-align: center;
+
+
+}
+
+.search{
+    width: 160px;
+    margin: auto;
+    }

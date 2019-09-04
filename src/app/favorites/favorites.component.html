@@ -1,13 +1,37 @@
+<div class="PrimeBackGround">
 <h2>Favorite Locations</h2>
 
-<div *ngFor="let a of allFavorite">
-  <div *ngFor="let f of a">
-    <div *ngIf="!isArray">
-      <p>{{f}}</p>
+
+<!-- isCelsius -->
+<div class="inOrder">
+  <div class="centerThemAll">
+    <div class="country-content" *ngFor="let a of allFavorite">
+        <div  *ngFor="let f of a">
+          <div  *ngIf="!isArray">
+      <h2>{{f}}</h2>
     </div>
     <div *ngIf="isArray">
-      <p>{{f[0].Temperature.Imperial.Value}}</p>
+      <div *ngIf="isCelsius">
+        <h3>{{((f[0].Temperature.Imperial.Value-32)/1.8).toFixed(0)}}°C</h3>
+      </div>
+        <div *ngIf="!isCelsius">
+      <h3>{{f[0].Temperature.Imperial.Value}}°{{f[0].Temperature.Imperial.Unit}}</h3>
     </div>
+      <!-- <div *ngIf="!isCelsius">
+      <h3>{{f[0].Temperature.Imperial.Value}}°{{f[0].Temperature.Imperial.Unit}}</h3>
+    </div> -->
+    </div>
+    <!-- <div *ngIf="isCelsius">
+        <h3>Minimum: {{((f[0].Temperature.Imperial.Value-32)/1.8).toFixed(0)}}°C </h3>
+      </div> -->
+      
     {{switch()}}
+</div>
+</div>
+</div>
+<div class="empty" *ngFor="let f of SomthingToFill" >
+    <p>{{f}}</p>
   </div>
 </div>
+</div>
+

@@ -1,4 +1,99 @@
-<div>
-  <a routerLink="home">Home</a>
-  <a routerLink="favorites">Favorites</a>
-</div>
+  
+      <head>
+    <style >
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  padding: 13px;
+  background-color: #dddddd;
+  font-size:22px;
+}
+li b {
+  display: block;
+  padding: 13px;
+  background-color: #4d0101;
+  font-size:22px;
+}
+</style>
+
+
+</head>
+<body>
+    <div *ngIf="!isDarkTheme">
+<ul>
+  <li><a  routerLink="home">Home</a></li>
+  <li><a routerLink="favorites">favorites</a></li>
+</ul>
+ </div>
+
+
+
+    <div *ngIf="isDarkTheme">
+<ul>
+  <li><b  routerLink="home">Home</b></li>
+  <li><b routerLink="favorites">favorites</b></li>
+</ul>
+ </div>
+
+
+
+<div class="centerThemAll">
+    <button type="button" (click)="toggleTheme()" class="btn btn-primary">Dark/White</button>
+  </div>
+  
+
+</body>
+
+<!-- 
+
+<div *ngIf="isDarkTheme">
+    
+  <head>
+  <style >
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    padding: 13px;
+    background-color: #011031;
+    font-size:22px;
+  }
+  </style>
+  
+  
+  </head>
+  <body>
+  
+  <ul>
+    <li><a  routerLink="home">Home</a></li>
+    <li><a routerLink="favorites">favorites</a></li>
+    <li><a> <button type="button" (click)="favoriteMe()" class="btn btn-primary">add to favorite</button></a></li>
+  </ul>
+   
+  <div class="centerThemAll">
+      <button type="button" (click)="toggleTheme()" class="btn btn-primary">Dark/White</button>
+    </div>
+    
+  
+  </body>
+  
+  </div> -->

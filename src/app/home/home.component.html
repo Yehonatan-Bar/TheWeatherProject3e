@@ -1,23 +1,59 @@
-<div class="country-content-main">
-  <div class=""w-50 m-5>
-      <div class="search">
-    <input #searchCityName type="text" class="form-control" placeholder="Enter city name" 
-    (keyup)="searchForecasts(searchCityName.value)">
+<!-- <body background="C:\Users\User\Documents\earth-on-clear-background-made-of-clay-1024x1017.png"> -->
+  <div class="PrimeBackGround">
+    
+    
+    
+    
+    
+    
+    <div class="search">
+      <input #searchCityName type="text" class="form-control" placeholder="Enter city name"
+      (keyup)="searchForecasts(searchCityName.value)">
+      
+      
+      
+      <div 
+      *ngFor="let city of citiesFromSearch"
+      (click)="getFiveDayForecasts(city)">
+      {{city.LocalizedName}}</div>
+    </div>
+    
+    
+    
+    
+    <div class=" cityName">
+      <h1>{{cityName}}</h1>
+    </div> 
+    
+    <div class="centerThemAll">
+      <button type="button" (click)="favoriteMe()" class="btn btn-primary">add to favorite</button>
+    </div>
+    <div class="centerThemAll">
+      <button type="button" (click)="isCelsiusMethod()" class="btn btn-primary">Celsius/Fahrenheit</button>
+    </div>
+    
 
-  <ul class="list-group my-list">
-      <li  *ngFor="let city of citiesFromSearch"
-       (click)="getFiveDayForecasts(city)">{{city.LocalizedName}}</li>
-    </ul> 
+   
+    
+    <div class="centerThemAll">
+      <div class="country-content" *ngFor="let f of forcast.DailyForecasts" >
+        <h2>{{f.Day.IconPhrase}}</h2>
+        <div *ngIf="!isCelsius">
+          <h3>Minimum: {{f.Temperature.Minimum.Value}}°{{f.Temperature.Minimum.Unit}} </h3>
+          <h3>Maximum: {{f.Temperature.Maximum.Value}}°{{f.Temperature.Maximum.Unit}} </h3>
+        </div>
+        <div *ngIf="isCelsius">
+          <h3>Minimum: {{((f.Temperature.Minimum.Value-32)/1.8).toFixed(0)}}°C </h3>
+          <h3>Maximum: {{((f.Temperature.Maximum.Value-32)/1.8).toFixed(0)}}°C </h3>
+        </div>
+        
+
+      </div>
+      <!-- //C=(F-32)/1.8 -->
+      
+      <div class="empty" *ngFor="let f of SomthingToFill" >
+        <p>{{f}}</p>
+      </div>
+    </div>
   </div>
-<h2>{{cityName}}</h2>
-<!-- DailyForecasts[""0""].Temperature.Maximum.Value -->
-  <div class="country-content" *ngFor="let f of forcast.DailyForecasts">
-    <p>{{f.Day.IconPhrase}}</p>
-    <p>Minimum: {{f.Temperature.Minimum.Value}}{{f.Temperature.Minimum.Unit}} </p>
-    <p>Maximum: {{f.Temperature.Maximum.Value}}{{f.Temperature.Maximum.Unit}} </p>
-
-  </div>
-
-<button type="button" (click)="favoriteMe()" class="btn btn-primary">add to favorite</button>
-
-</div>
+  <!-- https://yehonatanbar.s3.amazonaws.com/index.html --> 
